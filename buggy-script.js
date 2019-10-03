@@ -5,7 +5,7 @@ const source = process.argv[2];
 const target = process.argv[3];
 
 // read contents of source
-const contentsOfSource = fs.readFileSync('source', 'utf-8');
+const contentsOfSource = fs.readFileSync(source, 'utf-8');
 
 // get lines of source into an array, remove empty lines
 const linesInSource = contentsOfSource.split('\n').filter(Boolean);
@@ -25,7 +25,7 @@ linesInSource.forEach(line => {
   // write the file and it's contents
   fs.writeFileSync(
     newFilePath,
-    contentArr,
+    contentArr.join(' '),
     { flag: 'w+', encoding: 'utf-8' }
   );
 });
